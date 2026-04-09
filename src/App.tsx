@@ -6,7 +6,8 @@ import { CaseStudies } from './pages/CaseStudies';
 import { Company } from './pages/Company';
 import { Contact } from './pages/Contact';
 import { PartnersMarquee } from './components/PartnersMarquee';
-import { BorderGlow } from './components/BorderGlow.tsx';
+import { BorderGlow } from './components/BorderGlow';
+import LiquidEther from './components/LiquidEther.tsx';
 
 const RBMonogram = ({ className = "w-8 h-8" }) => (
   <svg viewBox="0 0 48 48" className={className} fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -68,8 +69,18 @@ function HomePage() {
     <div className="min-h-screen bg-[#0B0812] text-white overflow-hidden">
       {/* Hero Section */}
       <section className="relative pt-32 pb-20 px-6 overflow-hidden">
+        {/* Liquid Ether Background */}
+        <div className="absolute inset-0 z-0 opacity-70">
+          <LiquidEther
+            colors={['#8F00FF', '#5E239D', '#c084fc']}
+            mouseForce={25}
+            cursorSize={120}
+            autoDemo={true}
+          />
+        </div>
+
         {/* Hero Glow Effect */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] opacity-40">
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] opacity-40 pointer-events-none z-0">
           <div className="absolute inset-0 bg-gradient-radial from-[#8F00FF] via-[#5E239D] to-transparent blur-3xl"
                style={{
                  background: 'radial-gradient(circle, rgba(143,0,255,0.4) 0%, rgba(94,35,157,0.3) 35%, transparent 70%)'
@@ -88,10 +99,10 @@ function HomePage() {
               className="text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight leading-none mb-6"
               style={{ letterSpacing: '-0.02em' }}
             >
-              Zero-Downtime
+              Architecting the Enterprise
               <br />
               <span className="bg-gradient-to-r from-[#8F00FF] via-purple-400 to-[#5E239D] bg-clip-text text-transparent">
-                PLM Modernization
+                Digital Thread
               </span>
             </motion.h1>
 
@@ -101,7 +112,7 @@ function HomePage() {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="text-xl md:text-2xl text-gray-400 max-w-3xl mx-auto mb-12 leading-relaxed"
             >
-              Upgrade legacy PLM systems and synchronize with ERP, without disrupting production or engineering workflows.
+              Zero-downtime PLM modernization and seamless ERP synchronization for the world's most demanding manufacturing and semiconductor environments.
             </motion.p>
 
             <motion.div
@@ -114,14 +125,14 @@ function HomePage() {
                 to="/contact"
                 className="group px-8 py-4 bg-gradient-to-r from-[#8F00FF] to-[#6B1B8F] rounded-lg font-semibold shadow-[0_0_30px_rgba(143,0,255,0.4)] hover:shadow-[0_0_50px_rgba(143,0,255,0.7)] transition-all flex items-center gap-2"
               >
-                Start Consultation
+                Initialize Consultation
                 <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Link>
               <Link
-                to="/solutions"
+                to="/contact"
                 className="px-8 py-4 border border-white/10 rounded-lg font-semibold hover:bg-white/5 transition-all flex items-center gap-2"
               >
-                View Architecture
+                Explore Architecture
                 <ChevronRight className="w-5 h-5" />
               </Link>
             </motion.div>
@@ -173,23 +184,21 @@ function HomePage() {
             {features.map((feature, index) => {
               const IconComponent = feature.icon;
               return (
-                <motion.div key={index} variants={fadeInUp} className="h-full">
+                <motion.div
+                  key={index}
+                  variants={fadeInUp}
+                >
                   <BorderGlow
-                    className="h-full transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_10px_40px_rgba(143,0,255,0.15)] rounded-2xl"
+                    className="h-full p-8 rounded-2xl transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_10px_40px_rgba(143,0,255,0.15)]"
                     backgroundColor="#0B0812"
-                    colors={['#8F00FF', '#5E239D', '#c084fc']}
-                    animated={true}
-                    borderRadius={16}
+                    colors={['#8F00FF', '#c084fc', '#f472b6']}
                   >
-                    <div className="group relative p-8 h-full rounded-2xl backdrop-blur-xl border border-white/5 hover:border-[#8F00FF]/20 transition-all hover:bg-white/[0.04]">
-                      <div className="absolute inset-0 bg-gradient-to-br from-[#8F00FF]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-2xl"></div>
-                      <div className="relative h-full flex flex-col">
-                        <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#8F00FF]/20 to-[#5E239D]/20 border border-[#8F00FF]/20 flex items-center justify-center mb-6">
-                          <IconComponent className="w-6 h-6 text-[#8F00FF]" strokeWidth={1.5} />
-                        </div>
-                        <h3 className="text-2xl font-bold mb-4 tracking-tight">{feature.title}</h3>
-                        <p className="text-gray-400 leading-relaxed">{feature.description}</p>
+                    <div className="flex flex-col h-full">
+                      <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#8F00FF]/20 to-[#5E239D]/20 border border-[#8F00FF]/20 flex items-center justify-center mb-6">
+                        <IconComponent className="w-6 h-6 text-[#8F00FF]" strokeWidth={1.5} />
                       </div>
+                      <h3 className="text-2xl font-bold mb-4 tracking-tight">{feature.title}</h3>
+                      <p className="text-gray-400 leading-relaxed">{feature.description}</p>
                     </div>
                   </BorderGlow>
                 </motion.div>
@@ -203,18 +212,16 @@ function HomePage() {
       <section className="py-20 px-6">
         <div className="max-w-7xl mx-auto">
           <BorderGlow
-            className="rounded-2xl transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_10px_40px_rgba(143,0,255,0.15)]"
+            className="p-12 rounded-2xl transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_10px_40px_rgba(143,0,255,0.15)]"
             backgroundColor="#0B0812"
-            colors={['#8F00FF', '#5E239D', '#c084fc']}
-            animated={true}
-            borderRadius={16}
+            colors={['#8F00FF', '#c084fc', '#f472b6']}
           >
             <motion.div
               initial="initial"
               whileInView="animate"
               viewport={{ once: true }}
               variants={staggerContainer}
-              className="grid md:grid-cols-3 gap-8 p-12 backdrop-blur-xl bg-gradient-to-br from-white/[0.03] to-white/[0.01] border border-white/5 rounded-2xl"
+              className="grid md:grid-cols-3 gap-8"
             >
               <motion.div variants={fadeInUp} className="text-center">
                 <div className="flex items-center justify-center gap-2 mb-2">
