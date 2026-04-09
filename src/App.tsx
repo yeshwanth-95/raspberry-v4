@@ -6,8 +6,8 @@ import { CaseStudies } from './pages/CaseStudies';
 import { Company } from './pages/Company';
 import { Contact } from './pages/Contact';
 import { PartnersMarquee } from './components/PartnersMarquee';
-import { BorderGlow } from './components/BorderGlow.tsx';
-import LiquidEther from './components/LiquidEther.tsx';
+import { BorderGlow } from './components/BorderGlow';
+import { Hyperspeed } from './components/Hyperspeed';
 
 const RBMonogram = ({ className = "w-8 h-8" }) => (
   <svg viewBox="0 0 48 48" className={className} fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -68,14 +68,46 @@ function HomePage() {
   return (
     <div className="min-h-screen bg-[#0B0812] text-white overflow-hidden">
       {/* Hero Section */}
-      <section className="relative pt-32 pb-20 px-6 overflow-hidden">
-        {/* Liquid Ether Background */}
-        <div className="absolute inset-0 z-0 opacity-70">
-          <LiquidEther
-            colors={['#8F00FF', '#5E239D', '#c084fc']}
-            mouseForce={25}
-            cursorSize={120}
-            autoDemo={true}
+      <section className="relative pt-32 pb-20 px-6 overflow-hidden min-h-[80vh] flex flex-col justify-center">
+        
+        {/* 👇 Hyperspeed Background is injected here */}
+        <div className="absolute inset-0 z-0 opacity-70 mask-image:linear-gradient(to_bottom,transparent,black_10%,black_90%,transparent)">
+          <Hyperspeed 
+            effectOptions={{
+              "distortion":"turbulentDistortion",
+              "length":400,
+              "roadWidth":10,
+              "islandWidth":2,
+              "lanesPerRoad":3,
+              "fov":90,
+              "fovSpeedUp":150,
+              "speedUp":2,
+              "carLightsFade":0.4,
+              "totalSideLightSticks":20,
+              "lightPairsPerRoadWay":40,
+              "shoulderLinesWidthPercentage":0.05,
+              "brokenLinesWidthPercentage":0.1,
+              "brokenLinesLengthPercentage":0.5,
+              "lightStickWidth":[0.12,0.5],
+              "lightStickHeight":[1.3,1.7],
+              "movingAwaySpeed":,
+              "movingCloserSpeed":[-120,-160],
+              "carLightsLength":,
+              "carLightsRadius":[0.05,0.14],
+              "carWidthPercentage":[0.3,0.5],
+              "carShiftX":[-0.8,0.8],
+              "carFloorSeparation":,
+              "colors":{
+                "roadColor":0x080808,
+                "islandColor":0x0a0a0a,
+                "background":0x000000,
+                "shoulderLines":0xffffff,
+                "brokenLines":0xffffff,
+                "leftCars":[0x8F00FF, 0x5E239D, 0xc084fc], 
+                "rightCars":[0x8F00FF, 0x5E239D, 0xc084fc],
+                "sticks":0x8F00FF
+              }
+            }} 
           />
         </div>
 
@@ -88,13 +120,14 @@ function HomePage() {
           </div>
         </div>
 
-        <div className="max-w-6xl mx-auto relative z-10">
+        <div className="max-w-6xl mx-auto relative z-10 w-full">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             className="text-center"
           >
+            {/* 👇 Original Text Restored Here */}
             <motion.h1
               className="text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight leading-none mb-6"
               style={{ letterSpacing: '-0.02em' }}
