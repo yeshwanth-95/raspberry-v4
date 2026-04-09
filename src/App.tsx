@@ -100,7 +100,7 @@ function HomePage() {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="text-xl md:text-2xl text-gray-400 max-w-3xl mx-auto mb-12 leading-relaxed"
             >
-              Upgrade legacy PLM systems and synchronize with ERP—without disrupting production or engineering workflows.
+              Upgrade legacy PLM systems and synchronize with ERP, without disrupting production or engineering workflows.
             </motion.p>
 
             <motion.div
