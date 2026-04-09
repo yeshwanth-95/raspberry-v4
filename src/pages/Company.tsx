@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { ChevronRight, Award, Briefcase } from 'lucide-react';
+import { ChevronRight, Server, Shield } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 export function Company() {
@@ -209,7 +209,7 @@ export function Company() {
         </div>
       </section>
 
-      {/* Education & Certifications */}
+      {/* Enterprise Delivery Standards (Replaced Credentials) */}
       <section className="px-6 py-20 border-t border-white/10">
         <div className="max-w-6xl mx-auto">
           <motion.div
@@ -221,19 +221,19 @@ export function Company() {
           >
             <h2 className="text-3xl md:text-4xl font-bold mb-12">
               <span className="bg-gradient-to-r from-[#8F00FF] to-purple-400 bg-clip-text text-transparent">
-                Credentials
+                Enterprise Delivery Standards
               </span>
             </h2>
 
             <div className="flex flex-col md:flex-row justify-center items-center gap-12">
               <div className="flex items-center gap-3 text-lg text-gray-300">
-                <Award className="w-6 h-6 text-[#8F00FF] flex-shrink-0" />
-                <span>B.Tech in Mechanical Engineering, NIT Warangal</span>
+                <Server className="w-6 h-6 text-[#8F00FF] flex-shrink-0" />
+                <span>Zero-Downtime Migration Framework</span>
               </div>
               <div className="hidden md:block w-px h-8 bg-white/10"></div>
               <div className="flex items-center gap-3 text-lg text-gray-300">
-                <Briefcase className="w-6 h-6 text-[#8F00FF] flex-shrink-0" />
-                <span>Siemens PLM Certified Professional</span>
+                <Shield className="w-6 h-6 text-[#8F00FF] flex-shrink-0" />
+                <span>Semiconductor-Grade Security Architecture</span>
               </div>
             </div>
           </motion.div>
