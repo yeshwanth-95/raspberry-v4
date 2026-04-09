@@ -6,7 +6,7 @@ import { CaseStudies } from './pages/CaseStudies';
 import { Company } from './pages/Company';
 import { Contact } from './pages/Contact';
 import { PartnersMarquee } from './components/PartnersMarquee';
-import BorderGlow from './components/BorderGlow.tsx';
+import { BorderGlow } from './components/BorderGlow.tsx';
 
 const RBMonogram = ({ className = "w-8 h-8" }) => (
   <svg viewBox="0 0 48 48" className={className} fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -175,20 +175,15 @@ function HomePage() {
               return (
                 <motion.div key={index} variants={fadeInUp} className="h-full">
                   <BorderGlow
-                    edgeSensitivity={30}
-                    glowColor="270 100% 50%"
-                    backgroundColor="rgba(255, 255, 255, 0.02)"
-                    borderRadius={16}
-                    glowRadius={40}
-                    glowIntensity={1}
-                    coneSpread={25}
-                    animated={true}
+                    className="h-full transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_10px_40px_rgba(143,0,255,0.15)] rounded-2xl"
+                    backgroundColor="#0B0812"
                     colors={['#8F00FF', '#5E239D', '#c084fc']}
-                    className="h-full transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_10px_40px_rgba(143,0,255,0.15)]"
+                    animated={true}
+                    borderRadius={16}
                   >
                     <div className="group relative p-8 h-full rounded-2xl backdrop-blur-xl border border-white/5 hover:border-[#8F00FF]/20 transition-all hover:bg-white/[0.04]">
                       <div className="absolute inset-0 bg-gradient-to-br from-[#8F00FF]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-2xl"></div>
-                      <div className="relative">
+                      <div className="relative h-full flex flex-col">
                         <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#8F00FF]/20 to-[#5E239D]/20 border border-[#8F00FF]/20 flex items-center justify-center mb-6">
                           <IconComponent className="w-6 h-6 text-[#8F00FF]" strokeWidth={1.5} />
                         </div>
@@ -207,37 +202,45 @@ function HomePage() {
       {/* Stats Section */}
       <section className="py-20 px-6">
         <div className="max-w-7xl mx-auto">
-          <motion.div
-            initial="initial"
-            whileInView="animate"
-            viewport={{ once: true }}
-            variants={staggerContainer}
-            className="grid md:grid-cols-3 gap-8 p-12 rounded-2xl backdrop-blur-xl bg-gradient-to-br from-white/[0.03] to-white/[0.01] border border-white/10"
+          <BorderGlow
+            className="rounded-2xl transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_10px_40px_rgba(143,0,255,0.15)]"
+            backgroundColor="#0B0812"
+            colors={['#8F00FF', '#5E239D', '#c084fc']}
+            animated={true}
+            borderRadius={16}
           >
-            <motion.div variants={fadeInUp} className="text-center">
-              <div className="flex items-center justify-center gap-2 mb-2">
-                <Shield className="w-6 h-6 text-[#8F00FF]" />
-                <div className="text-5xl font-bold bg-gradient-to-r from-[#8F00FF] to-purple-400 bg-clip-text text-transparent">99.9%</div>
-              </div>
-              <p className="text-gray-400">System Uptime</p>
-            </motion.div>
+            <motion.div
+              initial="initial"
+              whileInView="animate"
+              viewport={{ once: true }}
+              variants={staggerContainer}
+              className="grid md:grid-cols-3 gap-8 p-12 backdrop-blur-xl bg-gradient-to-br from-white/[0.03] to-white/[0.01] border border-white/5 rounded-2xl"
+            >
+              <motion.div variants={fadeInUp} className="text-center">
+                <div className="flex items-center justify-center gap-2 mb-2">
+                  <Shield className="w-6 h-6 text-[#8F00FF]" />
+                  <div className="text-5xl font-bold bg-gradient-to-r from-[#8F00FF] to-purple-400 bg-clip-text text-transparent">99.9%</div>
+                </div>
+                <p className="text-gray-400">System Uptime</p>
+              </motion.div>
 
-            <motion.div variants={fadeInUp} className="text-center">
-              <div className="flex items-center justify-center gap-2 mb-2">
-                <TrendingUp className="w-6 h-6 text-[#8F00FF]" />
-                <div className="text-5xl font-bold bg-gradient-to-r from-[#8F00FF] to-purple-400 bg-clip-text text-transparent">40%</div>
-              </div>
-              <p className="text-gray-400">Faster Time-to-Market</p>
-            </motion.div>
+              <motion.div variants={fadeInUp} className="text-center">
+                <div className="flex items-center justify-center gap-2 mb-2">
+                  <TrendingUp className="w-6 h-6 text-[#8F00FF]" />
+                  <div className="text-5xl font-bold bg-gradient-to-r from-[#8F00FF] to-purple-400 bg-clip-text text-transparent">40%</div>
+                </div>
+                <p className="text-gray-400">Faster Time-to-Market</p>
+              </motion.div>
 
-            <motion.div variants={fadeInUp} className="text-center">
-              <div className="flex items-center justify-center gap-2 mb-2">
-                <Database className="w-6 h-6 text-[#8F00FF]" />
-                <div className="text-5xl font-bold bg-gradient-to-r from-[#8F00FF] to-purple-400 bg-clip-text text-transparent">500M+</div>
-              </div>
-              <p className="text-gray-400">Records Migrated</p>
+              <motion.div variants={fadeInUp} className="text-center">
+                <div className="flex items-center justify-center gap-2 mb-2">
+                  <Database className="w-6 h-6 text-[#8F00FF]" />
+                  <div className="text-5xl font-bold bg-gradient-to-r from-[#8F00FF] to-purple-400 bg-clip-text text-transparent">500M+</div>
+                </div>
+                <p className="text-gray-400">Records Migrated</p>
+              </motion.div>
             </motion.div>
-          </motion.div>
+          </BorderGlow>
         </div>
       </section>
 
