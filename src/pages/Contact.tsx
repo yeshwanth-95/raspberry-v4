@@ -26,25 +26,34 @@ export function Contact() {
     setIsLoading(true);
 
     try {
-      const response = await fetch(
-        `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/contact-submission`,
-        {
-          method: 'POST',
-          headers: {
-            'Authorization': `Bearer ${import.meta.env.VITE_SUPABASE_ANON_KEY}`,
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(formData)
-        }
-      );
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          access_key: "13857f22-a51a-4834-8176-b0101c6fa051",
+          "Full Name": formData.fullName,
+          "Company Name": formData.companyName,
+          "Work Email": formData.workEmail,
+          "Project Details": formData.projectDetails,
+        }),
+      });
 
-      if (response.ok) {
+      const data = await response.json();
+
+      if (data.success) {
         setSubmitted(true);
         setFormData({ fullName: '', companyName: '', workEmail: '', projectDetails: '' });
         setTimeout(() => setSubmitted(false), 5000);
+      } else {
+        console.error('Web3Forms Error:', data);
+        alert("There was an issue sending your request. Please try again.");
       }
     } catch (error) {
       console.error('Error submitting form:', error);
+      alert("Network error. Please check your connection and try again.");
     } finally {
       setIsLoading(false);
     }
