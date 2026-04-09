@@ -70,42 +70,47 @@ function HomePage() {
       {/* Hero Section */}
       <section className="relative pt-32 pb-20 px-6 overflow-hidden min-h-[80vh] flex flex-col justify-center">
         
-        {/* 👇 Hyperspeed Background is injected here */}
-        <div className="absolute inset-0 z-0 opacity-70 mask-image:linear-gradient(to_bottom,transparent,black_10%,black_90%,transparent)">
+        {/* 👇 Updated Hyperspeed implementation with pointer-events-none and inline maskImage */}
+        <div 
+          className="absolute inset-0 z-0 opacity-70 pointer-events-none"
+          style={{
+            maskImage: 'linear-gradient(to bottom, transparent, black 10%, black 90%, transparent)'
+          }}
+        >
           <Hyperspeed 
             effectOptions={{
-              "distortion":"turbulentDistortion",
-              "length":400,
-              "roadWidth":10,
-              "islandWidth":2,
-              "lanesPerRoad":3,
-              "fov":90,
-              "fovSpeedUp":150,
-              "speedUp":2,
-              "carLightsFade":0.4,
-              "totalSideLightSticks":20,
-              "lightPairsPerRoadWay":40,
-              "shoulderLinesWidthPercentage":0.05,
-              "brokenLinesWidthPercentage":0.1,
-              "brokenLinesLengthPercentage":0.5,
-              "lightStickWidth":[0.12,0.5],
-              "lightStickHeight":[1.3,1.7],
-              "movingAwaySpeed":,
-              "movingCloserSpeed":[-120,-160],
-              "carLightsLength":,
-              "carLightsRadius":[0.05,0.14],
-              "carWidthPercentage":[0.3,0.5],
-              "carShiftX":[-0.8,0.8],
-              "carFloorSeparation":,
-              "colors":{
-                "roadColor":0x080808,
-                "islandColor":0x0a0a0a,
-                "background":0x000000,
-                "shoulderLines":0xffffff,
-                "brokenLines":0xffffff,
-                "leftCars":[0x8F00FF, 0x5E239D, 0xc084fc], 
-                "rightCars":[0x8F00FF, 0x5E239D, 0xc084fc],
-                "sticks":0x8F00FF
+              distortion: "turbulentDistortion",
+              length: 400,
+              roadWidth: 10,
+              islandWidth: 2,
+              lanesPerRoad: 3,
+              fov: 90,
+              fovSpeedUp: 150,
+              speedUp: 2,
+              carLightsFade: 0.4,
+              totalSideLightSticks: 20,
+              lightPairsPerRoadWay: 40,
+              shoulderLinesWidthPercentage: 0.05,
+              brokenLinesWidthPercentage: 0.1,
+              brokenLinesLengthPercentage: 0.5,
+              lightStickWidth: [0.12, 0.5],
+              lightStickHeight: [1.3, 1.7],
+              movingAwaySpeed:,
+              movingCloserSpeed: [-120, -160],
+              carLightsLength:,
+              carLightsRadius: [0.05, 0.14],
+              carWidthPercentage: [0.3, 0.5],
+              carShiftX: [-0.8, 0.8],
+              carFloorSeparation: [0.05, 1],
+              colors: {
+                roadColor: 0x080808,
+                islandColor: 0x0a0a0a,
+                background: 0x000000,
+                shoulderLines: 0xffffff,
+                brokenLines: 0xffffff,
+                leftCars: [0x8F00FF, 0x5E239D, 0xc084fc],
+                rightCars: [0x8F00FF, 0x5E239D, 0xc084fc],
+                sticks: 0x8F00FF
               }
             }} 
           />
@@ -127,7 +132,6 @@ function HomePage() {
             transition={{ duration: 0.8 }}
             className="text-center"
           >
-            {/* 👇 Original Text Restored Here */}
             <motion.h1
               className="text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight leading-none mb-6"
               style={{ letterSpacing: '-0.02em' }}
@@ -352,10 +356,10 @@ function Navigation() {
           transition={{ duration: 0.5 }}
           className="flex items-center gap-3"
         >
-          <a href="/" className="flex items-center gap-3 hover:opacity-80 transition-opacity">
+          <Link to="/" className="flex items-center gap-3 hover:opacity-80 transition-opacity">
             <RBMonogram className="w-8 h-8" />
             <span className="text-lg font-bold tracking-tight bg-gradient-to-r from-[#8F00FF] to-purple-400 bg-clip-text text-transparent">RaspBerry PLM</span>
-          </a>
+          </Link>
         </motion.div>
 
         <motion.div
@@ -364,9 +368,9 @@ function Navigation() {
           transition={{ duration: 0.5, delay: 0.2 }}
           className="hidden md:flex items-center gap-8"
         >
-          <a href="/solutions" className={`text-sm transition-colors ${location.pathname === '/solutions' ? 'text-white font-medium' : 'text-gray-300 hover:text-white'}`}>Solutions</a>
-          <a href="/case-studies" className={`text-sm transition-colors ${location.pathname === '/case-studies' ? 'text-white font-medium' : 'text-gray-300 hover:text-white'}`}>Case Studies</a>
-          <a href="/company" className={`text-sm transition-colors ${location.pathname === '/company' ? 'text-white font-medium' : 'text-gray-300 hover:text-white'}`}>Company</a>
+          <Link to="/solutions" className={`text-sm transition-colors ${location.pathname === '/solutions' ? 'text-white font-medium' : 'text-gray-300 hover:text-white'}`}>Solutions</Link>
+          <Link to="/case-studies" className={`text-sm transition-colors ${location.pathname === '/case-studies' ? 'text-white font-medium' : 'text-gray-300 hover:text-white'}`}>Case Studies</Link>
+          <Link to="/company" className={`text-sm transition-colors ${location.pathname === '/company' ? 'text-white font-medium' : 'text-gray-300 hover:text-white'}`}>Company</Link>
           <Link to="/contact" className="px-5 py-2 bg-gradient-to-r from-[#8F00FF]/20 to-purple-400/20 border border-[#8F00FF]/40 rounded-lg text-sm font-medium hover:border-[#8F00FF]/60 transition-all shadow-[0_0_20px_rgba(143,0,255,0.3)] hover:shadow-[0_0_30px_rgba(143,0,255,0.5)]">
             <span className="bg-gradient-to-r from-[#8F00FF] to-purple-400 bg-clip-text text-transparent">Contact Us</span>
           </Link>
