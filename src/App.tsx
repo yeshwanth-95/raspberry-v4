@@ -87,10 +87,10 @@ function HomePage() {
               className="text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight leading-none mb-6"
               style={{ letterSpacing: '-0.02em' }}
             >
-              Architecting the Enterprise
+              Zero-Downtime
               <br />
               <span className="bg-gradient-to-r from-[#8F00FF] via-purple-400 to-[#5E239D] bg-clip-text text-transparent">
-                Digital Thread
+                PLM Modernization
               </span>
             </motion.h1>
 
@@ -100,7 +100,7 @@ function HomePage() {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="text-xl md:text-2xl text-gray-400 max-w-3xl mx-auto mb-12 leading-relaxed"
             >
-              Zero-downtime PLM modernization and seamless ERP synchronization for the world's most demanding manufacturing and semiconductor environments.
+              Upgrade legacy PLM systems and synchronize with ERP—without disrupting production or engineering workflows.
             </motion.p>
 
             <motion.div
@@ -113,14 +113,14 @@ function HomePage() {
                 to="/contact"
                 className="group px-8 py-4 bg-gradient-to-r from-[#8F00FF] to-[#6B1B8F] rounded-lg font-semibold shadow-[0_0_30px_rgba(143,0,255,0.4)] hover:shadow-[0_0_50px_rgba(143,0,255,0.7)] transition-all flex items-center gap-2"
               >
-                Initialize Consultation
+                Start Consultation
                 <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Link>
               <Link
-                to="/contact"
+                to="/solutions"
                 className="px-8 py-4 border border-white/10 rounded-lg font-semibold hover:bg-white/5 transition-all flex items-center gap-2"
               >
-                Explore Architecture
+                View Architecture
                 <ChevronRight className="w-5 h-5" />
               </Link>
             </motion.div>
