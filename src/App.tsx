@@ -6,6 +6,7 @@ import { CaseStudies } from './pages/CaseStudies';
 import { Company } from './pages/Company';
 import { Contact } from './pages/Contact';
 import { PartnersMarquee } from './components/PartnersMarquee';
+import BorderGlow from './components/BorderGlow';
 
 const RBMonogram = ({ className = "w-8 h-8" }) => (
   <svg viewBox="0 0 48 48" className={className} fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -172,19 +173,30 @@ function HomePage() {
             {features.map((feature, index) => {
               const IconComponent = feature.icon;
               return (
-                <motion.div
-                  key={index}
-                  variants={fadeInUp}
-                  className="group relative p-8 rounded-2xl backdrop-blur-xl bg-white/[0.02] border border-white/10 hover:border-[#8F00FF]/30 transition-all hover:bg-white/[0.04]"
-                >
-                  <div className="absolute inset-0 bg-gradient-to-br from-[#8F00FF]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-2xl"></div>
-                  <div className="relative">
-                    <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#8F00FF]/20 to-[#5E239D]/20 border border-[#8F00FF]/20 flex items-center justify-center mb-6">
-                      <IconComponent className="w-6 h-6 text-[#8F00FF]" strokeWidth={1.5} />
+                <motion.div key={index} variants={fadeInUp} className="h-full">
+                  <BorderGlow
+                    edgeSensitivity={30}
+                    glowColor="270 100% 50%"
+                    backgroundColor="rgba(255, 255, 255, 0.02)"
+                    borderRadius={16}
+                    glowRadius={40}
+                    glowIntensity={1}
+                    coneSpread={25}
+                    animated={true}
+                    colors={['#8F00FF', '#5E239D', '#c084fc']}
+                    className="h-full transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_10px_40px_rgba(143,0,255,0.15)]"
+                  >
+                    <div className="group relative p-8 h-full rounded-2xl backdrop-blur-xl border border-white/5 hover:border-[#8F00FF]/20 transition-all hover:bg-white/[0.04]">
+                      <div className="absolute inset-0 bg-gradient-to-br from-[#8F00FF]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-2xl"></div>
+                      <div className="relative">
+                        <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#8F00FF]/20 to-[#5E239D]/20 border border-[#8F00FF]/20 flex items-center justify-center mb-6">
+                          <IconComponent className="w-6 h-6 text-[#8F00FF]" strokeWidth={1.5} />
+                        </div>
+                        <h3 className="text-2xl font-bold mb-4 tracking-tight">{feature.title}</h3>
+                        <p className="text-gray-400 leading-relaxed">{feature.description}</p>
+                      </div>
                     </div>
-                    <h3 className="text-2xl font-bold mb-4 tracking-tight">{feature.title}</h3>
-                    <p className="text-gray-400 leading-relaxed">{feature.description}</p>
-                  </div>
+                  </BorderGlow>
                 </motion.div>
               );
             })}
