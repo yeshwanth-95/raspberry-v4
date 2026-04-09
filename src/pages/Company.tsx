@@ -74,7 +74,7 @@ export function Company() {
               Executive Brief:
               <br />
               <span className="bg-gradient-to-r from-[#8F00FF] via-purple-400 to-[#5E239D] bg-clip-text text-transparent">
-                Bala Murthy
+                RaspBerry PLM
               </span>
             </h1>
             <p className="text-2xl md:text-3xl font-light text-gray-300 mb-6">
@@ -258,7 +258,7 @@ export function Company() {
               </span>
             </h2>
             <p className="text-xl text-gray-400 mb-10 leading-relaxed">
-              Connect with Bala to explore how RaspBerry can accelerate your enterprise transformation.
+              Connect with RaspBerry to explore how we can accelerate your enterprise transformation.
             </p>
             <Link
               to="/contact"
