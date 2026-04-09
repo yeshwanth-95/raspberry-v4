@@ -3,7 +3,7 @@ import { useRef, useCallback, useState, useEffect } from 'react';
 function parseHSL(hslStr: string) {
   const match = hslStr.match(/([\d.]+)\s*([\d.]+)%?\s*([\d.]+)%?/);
   if (!match) return { h: 40, s: 80, l: 80 };
-  return { h: parseFloat(match), s: parseFloat(match), l: parseFloat(match) };
+  return { h: parseFloat(match[1]), s: parseFloat(match[2]), l: parseFloat(match[3]) };
 }
 
 function buildBoxShadow(glowColor: string, intensity: number) {
@@ -17,7 +17,7 @@ function buildBoxShadow(glowColor: string, intensity: number) {
     [0, 0, 15, 0, 30, false], [0, 0, 25, 2, 20, false], [0, 0, 50, 2, 10, false],
   ];
   return layers.map(([x, y, blur, spread, alpha, inset]) => {
-    const a = Math.min((alpha as number) * intensity, 100);
+    const a = Math.min(alpha * intensity, 100);
     return `${inset ? 'inset ' : ''}${x}px ${y}px ${blur}px ${spread}px hsl(${base} / ${a}%)`;
   }).join(', ');
 }
@@ -46,7 +46,7 @@ function animateValue({ start = 0, end = 100, duration = 1000, delay = 0, ease =
 }
 
 const GRADIENT_POSITIONS = ['80% 55%', '69% 34%', '8% 6%', '41% 38%', '86% 85%', '82% 18%', '51% 4%'];
-const COLOR_MAP =;
+const COLOR_MAP = [0, 1, 2, 0, 1, 2, 1];
 
 function buildMeshGradients(colors: string[]) {
   const gradients = [];
@@ -54,7 +54,7 @@ function buildMeshGradients(colors: string[]) {
     const c = colors[Math.min(COLOR_MAP[i], colors.length - 1)];
     gradients.push(`radial-gradient(at ${GRADIENT_POSITIONS[i]}, ${c} 0px, transparent 50%)`);
   }
-  gradients.push(`linear-gradient(${colors} 0 100%)`);
+  gradients.push(`linear-gradient(${colors[0]} 0 100%)`);
   return gradients;
 }
 
@@ -179,7 +179,7 @@ export function BorderGlow({
       }}
     >
       <div
-        className="absolute inset-0 rounded-[inherit] -z-"
+        className="absolute inset-0 rounded-[inherit] -z-[1]"
         style={{
           border: '1px solid transparent',
           background: [
@@ -195,7 +195,7 @@ export function BorderGlow({
       />
 
       <div
-        className="absolute inset-0 rounded-[inherit] -z-"
+        className="absolute inset-0 rounded-[inherit] -z-[1]"
         style={{
           border: '1px solid transparent',
           background: fillBg.join(', '),
@@ -226,7 +226,7 @@ export function BorderGlow({
       />
 
       <span
-        className="absolute pointer-events-none z- rounded-[inherit]"
+        className="absolute pointer-events-none z-[1] rounded-[inherit]"
         style={{
           inset: `${-glowRadius}px`,
           maskImage: `conic-gradient(from ${angleDeg} at center, black 2.5%, transparent 10%, transparent 90%, black 97.5%)`,
@@ -245,7 +245,7 @@ export function BorderGlow({
         />
       </span>
 
-      <div className="flex flex-col relative overflow-auto z- h-full">
+      <div className="flex flex-col relative overflow-auto z-[1]">
         {children}
       </div>
     </div>
