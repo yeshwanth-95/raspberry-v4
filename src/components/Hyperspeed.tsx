@@ -21,7 +21,7 @@ const DEFAULT_EFFECT_OPTIONS = {
   brokenLinesLengthPercentage: 0.5,
   lightStickWidth: [0.12, 0.5],
   lightStickHeight: [1.3, 1.7],
-  movingAwaySpeed:,
+  movingAwaySpeed: [120, 160],
   movingCloserSpeed: [-120, -160],
   carLightsLength: [400 * 0.03, 400 * 0.2],
   carLightsRadius: [0.05, 0.14],
