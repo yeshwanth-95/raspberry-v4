@@ -27,7 +27,7 @@ const DEFAULT_EFFECT_OPTIONS = {
   carLightsRadius: [0.05, 0.14],
   carWidthPercentage: [0.3, 0.5],
   carShiftX: [-0.8, 0.8],
-  carFloorSeparation:,
+  carFloorSeparation: [0.05, 1],
   colors: {
     roadColor: 0x080808,
     islandColor: 0x0a0a0a,
