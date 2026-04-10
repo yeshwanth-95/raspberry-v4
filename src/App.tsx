@@ -25,17 +25,17 @@ const RBMonogram = ({ className = "w-8 h-8" }) => (
 );
 
 const HYPERSPEED_OPTIONS = {
-  distortion: "turbulentDistortion",
+  distortion: "deepDistortion",
   length: 400,
-  roadWidth: 10,
+  roadWidth: 9,
   islandWidth: 2,
-  lanesPerRoad: 3,
+  lanesPerRoad: 4,
   fov: 90,
   fovSpeedUp: 150,
   speedUp: 2,
   carLightsFade: 0.4,
-  totalSideLightSticks: 20,
-  lightPairsPerRoadWay: 40,
+  totalSideLightSticks: 50,
+  lightPairsPerRoadWay: 50,
   shoulderLinesWidthPercentage: 0.05,
   brokenLinesWidthPercentage: 0.1,
   brokenLinesLengthPercentage: 0.5,
@@ -43,20 +43,20 @@ const HYPERSPEED_OPTIONS = {
   lightStickHeight: [1.3, 1.7],
   movingAwaySpeed: [60, 80],
   movingCloserSpeed: [-120, -160],
-  carLightsLength: [400, 500],
+  carLightsLength: [400 * 0.05, 400 * 0.3],
   carLightsRadius: [0.05, 0.14],
   carWidthPercentage: [0.3, 0.5],
   carShiftX: [-0.8, 0.8],
-  carFloorSeparation: [0.05, 1],
+  carFloorSeparation: [0, 5],
   colors: {
     roadColor: 0x080808,
     islandColor: 0x0a0a0a,
     background: 0x000000,
     shoulderLines: 0xffffff,
     brokenLines: 0xffffff,
-    leftCars: [0x8F00FF, 0x5E239D, 0xc084fc],
-    rightCars: [0x8F00FF, 0x5E239D, 0xc084fc],
-    sticks: 0x8F00FF
+    leftCars: [0xd856bf, 0x6750a2, 0xc247ac],
+    rightCars: [0x03b3c3, 0x0e5ea5, 0x324555],
+    sticks: 0x03b3c3
   }
 };
 
