@@ -1229,3 +1229,4 @@ export function Hyperspeed({ effectOptions = DEFAULT_EFFECT_OPTIONS }: Hyperspee
 
   return <div className="w-full h-full" ref={hyperspeed}></div>;
 }
+export default Hyperspeed;
