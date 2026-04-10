@@ -7,7 +7,7 @@ import { Company } from './pages/Company';
 import { Contact } from './pages/Contact';
 import { PartnersMarquee } from './components/PartnersMarquee';
 import { BorderGlow } from './components/BorderGlow.tsx';
-import Hyperspeed from './components/Hyperspeed';
+import { Hyperspeed } from './components/Hyperspeed';
 
 const RBMonogram = ({ className = "w-8 h-8" }) => (
   <svg viewBox="0 0 48 48" className={className} fill="none" xmlns="http://www.w3.org/2000/svg">
