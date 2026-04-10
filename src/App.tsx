@@ -6,8 +6,8 @@ import { CaseStudies } from './pages/CaseStudies';
 import { Company } from './pages/Company';
 import { Contact } from './pages/Contact';
 import { PartnersMarquee } from './components/PartnersMarquee';
-import { BorderGlow } from './components/BorderGlow';
-import { Hyperspeed } from './components/Hyperspeed';
+import { BorderGlow } from './components/BorderGlow.tsx';
+import Hyperspeed from './components/Hyperspeed';
 
 const RBMonogram = ({ className = "w-8 h-8" }) => (
   <svg viewBox="0 0 48 48" className={className} fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -70,47 +70,48 @@ function HomePage() {
       {/* Hero Section */}
       <section className="relative pt-32 pb-20 px-6 overflow-hidden min-h-[80vh] flex flex-col justify-center">
         
-        {/* 👇 Updated Hyperspeed implementation with pointer-events-none and inline maskImage */}
+        {/* Hyperspeed Background */}
         <div 
           className="absolute inset-0 z-0 opacity-70 pointer-events-none"
           style={{
-            maskImage: 'linear-gradient(to bottom, transparent, black 10%, black 90%, transparent)'
+            maskImage: 'linear-gradient(to bottom, transparent, black 10%, black 90%, transparent)',
+            WebkitMaskImage: 'linear-gradient(to bottom, transparent, black 10%, black 90%, transparent)'
           }}
         >
           <Hyperspeed 
             effectOptions={{
-              distortion: "turbulentDistortion",
-              length: 400,
-              roadWidth: 10,
-              islandWidth: 2,
-              lanesPerRoad: 3,
-              fov: 90,
-              fovSpeedUp: 150,
-              speedUp: 2,
-              carLightsFade: 0.4,
-              totalSideLightSticks: 20,
-              lightPairsPerRoadWay: 40,
-              shoulderLinesWidthPercentage: 0.05,
-              brokenLinesWidthPercentage: 0.1,
-              brokenLinesLengthPercentage: 0.5,
-              lightStickWidth: [0.12, 0.5],
-              lightStickHeight: [1.3, 1.7],
-              movingAwaySpeed:,
-              movingCloserSpeed: [-120, -160],
-              carLightsLength:,
-              carLightsRadius: [0.05, 0.14],
-              carWidthPercentage: [0.3, 0.5],
-              carShiftX: [-0.8, 0.8],
-              carFloorSeparation: [0.05, 1],
-              colors: {
-                roadColor: 0x080808,
-                islandColor: 0x0a0a0a,
-                background: 0x000000,
-                shoulderLines: 0xffffff,
-                brokenLines: 0xffffff,
-                leftCars: [0x8F00FF, 0x5E239D, 0xc084fc],
-                rightCars: [0x8F00FF, 0x5E239D, 0xc084fc],
-                sticks: 0x8F00FF
+              "distortion":"turbulentDistortion",
+              "length":400,
+              "roadWidth":10,
+              "islandWidth":2,
+              "lanesPerRoad":3,
+              "fov":90,
+              "fovSpeedUp":150,
+              "speedUp":2,
+              "carLightsFade":0.4,
+              "totalSideLightSticks":20,
+              "lightPairsPerRoadWay":40,
+              "shoulderLinesWidthPercentage":0.05,
+              "brokenLinesWidthPercentage":0.1,
+              "brokenLinesLengthPercentage":0.5,
+              "lightStickWidth":[0.12,0.5],
+              "lightStickHeight":[1.3,1.7],
+              "movingAwaySpeed": [120, 160],
+              "movingCloserSpeed":[-120,-160],
+              "carLightsLength":[200, 400],
+              "carLightsRadius":[0.05,0.14],
+              "carWidthPercentage":[0.3,0.5],
+              "carShiftX":[-0.8,0.8],
+              "carFloorSeparation":[0.05, 1],
+              "colors":{
+                "roadColor":0x080808,
+                "islandColor":0x0a0a0a,
+                "background":0x000000,
+                "shoulderLines":0xffffff,
+                "brokenLines":0xffffff,
+                "leftCars":[0x8F00FF, 0x5E239D, 0xc084fc], 
+                "rightCars":[0x8F00FF, 0x5E239D, 0xc084fc],
+                "sticks":0x8F00FF
               }
             }} 
           />
@@ -395,4 +396,4 @@ function App() {
   );
 }
 
-export default App ;
+export default App;
